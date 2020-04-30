@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Task from '../Task'
 import { Droppable } from 'react-beautiful-dnd'
 import classnames from 'classnames/bind'
+import { ITEM_TYPE } from '../../constants'
 
 // style
 import styles from './style.module.scss'
@@ -18,7 +19,7 @@ function Column(props) {
   const { columnId, columnTitle, taskList } = columnData
 
   return (
-    <Droppable droppableId={columnId}>
+    <Droppable droppableId={columnId} type={ITEM_TYPE.TASK}>
       {(provided, snapshot) => {
         return (
           <div className={cx('column')} data-is-over={snapshot.isDraggingOver}>

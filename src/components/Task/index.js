@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Draggable } from 'react-beautiful-dnd'
 import classnames from 'classnames/bind'
+import { ITEM_TYPE } from '../../constants'
 
 // style
 import styles from './style.module.scss'
@@ -18,7 +19,7 @@ function Task(props) {
   const { taskId, content } = task
 
   return (
-    <Draggable draggableId={taskId} index={taskIndex}>
+    <Draggable draggableId={taskId} index={taskIndex} type={ITEM_TYPE.TASK}>
       {(provided, snapshot) => {
         return (
           <div

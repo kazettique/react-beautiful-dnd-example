@@ -1,8 +1,12 @@
 .board {
-  margin: 50px;
+  margin: 20px 50px 50px 50px;
   display: flex;
   width: auto;
   background: #ffffff;
   border: 1px dashed #000000;
   justify-content: center;
+
+  &-title {
+    text-align: center;
+  }
 }

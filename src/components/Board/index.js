@@ -22,8 +22,9 @@ function Board(props) {
   }
     , [taskList])
 
-  const handleDrag = result => {
+  const handleDragTask = result => {
     const { source, destination, draggableId, type, reason } = result
+    console.log(type)
     // 當放置於 droppable ground 區域外的時候，不做任何事
     if (!destination) return
     const { droppableId: sourceColumnId, index: sourceTaskIndex } = source
@@ -43,8 +44,8 @@ function Board(props) {
 
   return (
     <>
-      <DragDropContext onDragEnd={handleDrag}>
-        <h1>JIRA Board made with React-Beautiful-DnD</h1>
+      <DragDropContext onDragEnd={handleDragTask}>
+        <h1 className={cx('board-title')}>JIRA Board made with React-Beautiful-DnD</h1>
         <div className={cx('board')}>
           {taskList.map((columnData, columnIndex) => {
             const { columnId } = columnData
