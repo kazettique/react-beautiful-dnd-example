@@ -1,0 +1,20 @@
+.wrapper {
+  padding: 5px;
+}
+
+.task {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: grab;
+  background: #ffffff;
+  transition: .3s;
+  padding: 10px;
+  border-radius: 5px;
+
+  &[data-is-dragging="true"] {
+    background: rgb(137, 187, 242);
+    box-shadow: 0 6px 16px 0 #dddfe7;
+  }
+}
