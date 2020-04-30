@@ -1,11 +1,29 @@
-.column {
+$primary:rgb(042, 105, 199);
+
+.wrapper {
+  width: auto;
+  padding: 10px;
   margin: 10px;
-  background: #ffffff;
+  background: rgb(233, 240, 249);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
   width: 300px;
+
+  &[data-is-dragging="true"] {
+    border: 1px dashed rgb(042, 105, 199);
+    box-shadow: 0 6px 16px 0 #dddfe7;
+  }
+}
+
+.column {
+  background: #ffffff;
+  width: 100%;
+  padding: 10px 0;
   background: rgb(233, 240, 249);
   transition: .3s;
-  padding: 10px;
   border-radius: 5px;
+  flex-grow: 1;
 
   &[data-is-over="true"] {
     background: rgb(212, 225, 244);
@@ -19,5 +37,11 @@
     &[data-is-over="true"] {
       color: rgb(042, 105, 199);
     }
+  }
+
+  &-drag_icon {
+    // width: 8px;
+    height: 15px;
+    margin-right: 5px;
   }
 }

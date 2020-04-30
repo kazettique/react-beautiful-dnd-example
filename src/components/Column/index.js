@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Droppable } from 'react-beautiful-dnd'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
 import classnames from 'classnames/bind'
+import DragIcon from '../../assets/grip-vertical-solid.svg'
 
 // component
 import Task from '../Task'
@@ -16,31 +17,45 @@ const cx = classnames.bind(styles)
 
 export const propTypes = {
   columnData: PropTypes.object,
+  columnIndex: PropTypes.number,
 }
 
 function Column(props) {
-  const { columnData } = props
+  const { columnData, columnIndex } = props
   const { columnId, columnTitle, taskList } = columnData
 
   return (
-    <Droppable droppableId={columnId} type={ITEM_TYPE.TASK}>
+    <Draggable draggableId={columnId} index={columnIndex} type={ITEM_TYPE.COLUMN}>
       {(provided, snapshot) => {
-        const { droppableProps, innerRef } = provided
-        const { isDraggingOver } = snapshot
+        const { draggableProps, innerRef: dragInnerRef, dragHandleProps } = provided
+        const { isDragging } = snapshot
         return (
-          <div className={cx('column')} data-is-over={isDraggingOver}>
-            <h3 className={cx('column-title')} data-is-over={isDraggingOver}>{columnTitle}</h3>
-            <div ref={innerRef} {...droppableProps}>
-              {taskList.map((task, taskIndex) => {
-                const { taskId } = task
-                return <Task key={taskId} task={task} taskIndex={taskIndex} />
-              })}
-              {provided.placeholder}
-            </div>
+          <div className={cx('wrapper')} {...draggableProps} ref={dragInnerRef} data-is-dragging={isDragging}>
+            <Droppable droppableId={columnId} type={ITEM_TYPE.TASK}>
+              {(provided, snapshot) => {
+                const { droppableProps, innerRef: dropInnerRef, placeholder } = provided
+                const { isDraggingOver } = snapshot
+                return (
+                  <div className={cx('column')} data-is-over={isDraggingOver}>
+                    <h3 className={cx('column-title')} data-is-over={isDraggingOver} {...dragHandleProps}>
+                      <img src={DragIcon} alt="drag" className={cx('column-drag_icon')} />
+                      {columnTitle}
+                    </h3>
+                    <div ref={dropInnerRef} {...droppableProps}>
+                      {taskList.map((task, taskIndex) => {
+                        const { taskId } = task
+                        return <Task key={taskId} task={task} taskIndex={taskIndex} />
+                      })}
+                      {placeholder}
+                    </div>
+                  </div>
+                )
+              }}
+            </Droppable>
           </div>
         )
       }}
-    </Droppable>
+    </Draggable>
   )
 }
 
