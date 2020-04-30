@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Draggable } from 'react-beautiful-dnd'
 import classnames from 'classnames/bind'
+
+// constant
 import { ITEM_TYPE } from '../../constants'
 
 // style
@@ -21,14 +23,16 @@ function Task(props) {
   return (
     <Draggable draggableId={taskId} index={taskIndex} type={ITEM_TYPE.TASK}>
       {(provided, snapshot) => {
+        const { draggableProps, dragHandleProps, innerRef } = provided
+        const { isDragging } = snapshot
         return (
           <div
             className={cx('wrapper')}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
+            {...draggableProps}
+            {...dragHandleProps}
+            ref={innerRef}
           >
-            <div className={cx('task')} data-is-dragging={snapshot.isDragging}>
+            <div className={cx('task')} data-is-dragging={isDragging}>
               <strong>[IT-{taskId}]</strong>
               <p>{content}</p>
             </div>

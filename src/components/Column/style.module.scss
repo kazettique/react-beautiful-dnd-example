@@ -14,5 +14,10 @@
   &-title {
     text-align: center;
     text-transform: uppercase;
+    transition: .3s;
+
+    &[data-is-over="true"] {
+      color: rgb(042, 105, 199);
+    }
   }
 }

@@ -6,6 +6,9 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import cloneDeep from 'lodash/cloneDeep'
 import findIndex from 'lodash/findIndex'
 
+// constant
+import { ITEM_TYPE } from '../../constants'
+
 // style
 import styles from './style.module.scss'
 
@@ -24,7 +27,8 @@ function Board(props) {
 
   const handleDragTask = result => {
     const { source, destination, draggableId, type, reason } = result
-    console.log(type)
+    // 若 drag type 不是 task，不做任何事
+    if (type !== ITEM_TYPE.TASK) return
     // 當放置於 droppable ground 區域外的時候，不做任何事
     if (!destination) return
     const { droppableId: sourceColumnId, index: sourceTaskIndex } = source
