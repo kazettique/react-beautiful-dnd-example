@@ -40,7 +40,7 @@ import { Draggable } from 'react-beautiful-dnd'
 ```
 
 要拖曳的元件不能直接作為`children`直接包在`<Draggable />`中間，
-必須是一個函式（官方的教學影片說裡面是放一個`renderProps`），並在`return`的時候返回我們要拖拉的元件
+必須是一個函式（官方的教學影片說裡面是放一個`renderProps`），並在`return`的時候返回我們要拖拉的元件，
 而函式的參數中，有`<Draggable />`的兩個物件：`provided`及`snapshot`
 
 #### `provided`
