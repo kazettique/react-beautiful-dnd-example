@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-beautiful-dnd-example/static/css/main.b16ebcc2.chunk.css",
+    "main.js": "/react-beautiful-dnd-example/static/js/main.a985045f.chunk.js",
+    "main.js.map": "/react-beautiful-dnd-example/static/js/main.a985045f.chunk.js.map",
+    "runtime-main.js": "/react-beautiful-dnd-example/static/js/runtime-main.c3e98f52.js",
+    "runtime-main.js.map": "/react-beautiful-dnd-example/static/js/runtime-main.c3e98f52.js.map",
+    "static/js/2.55278bef.chunk.js": "/react-beautiful-dnd-example/static/js/2.55278bef.chunk.js",
+    "static/js/2.55278bef.chunk.js.map": "/react-beautiful-dnd-example/static/js/2.55278bef.chunk.js.map",
+    "index.html": "/react-beautiful-dnd-example/index.html",
+    "precache-manifest.2b3c791c56813ca12fc526f0484e70f7.js": "/react-beautiful-dnd-example/precache-manifest.2b3c791c56813ca12fc526f0484e70f7.js",
+    "service-worker.js": "/react-beautiful-dnd-example/service-worker.js",
+    "static/css/main.b16ebcc2.chunk.css.map": "/react-beautiful-dnd-example/static/css/main.b16ebcc2.chunk.css.map",
+    "static/js/2.55278bef.chunk.js.LICENSE.txt": "/react-beautiful-dnd-example/static/js/2.55278bef.chunk.js.LICENSE.txt",
+    "static/media/grip-vertical-solid.svg": "/react-beautiful-dnd-example/static/media/grip-vertical-solid.d1cdbeac.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c3e98f52.js",
+    "static/js/2.55278bef.chunk.js",
+    "static/css/main.b16ebcc2.chunk.css",
+    "static/js/main.a985045f.chunk.js"
+  ]
+}
